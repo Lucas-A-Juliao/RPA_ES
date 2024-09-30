@@ -1,0 +1,36 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jea="clr-namespace:JornadaRPA.Excel.As_Dataframe;assembly=JornadaRPA.Excel"
+ xmlns:jea1="clr-namespace:JornadaRPA.Excel.As_List;assembly=JornadaRPA.Excel"
+ xmlns:jer="clr-namespace:JornadaRPA.Excel.Read_Excel;assembly=JornadaRPA.Excel"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jer:Read_Excel sap2010:WorkflowViewState.IdRef="Read_Excel_1" dataList="dataList" dataType="As_List" file_or_path="&quot;C:\Users\HP\Downloads\Lista_ejemplo (1).xlsx&quot;" header="True" instance="excelBot" instanceExcel="True" sheet="None" />
+    <jea:As_Dataframe sap2010:WorkflowViewState.IdRef="As_Dataframe_1" dataFrame="dataFrame" instance="excelBot" sheet="&quot;lista&quot;" />
+    <jea1:As_List dataList="dataList" instance="excelBot" sheet="None" sap2010:WorkflowViewState.IdRef="As_List_1" />
+    <jpp:Print sap2010:WorkflowViewState.IdRef="Print_1" print="listData" />
+    <sads:DebugSymbol.Symbol>dyVDOlxSUEFcYm90Y2l0eVxMYWJcTGFiX2VjeGVsXEJvdC54YW1sBQ0DEw4CAQEOBQ75AQIBBQ8FD44BAgEEEAUQdgIBAxEFEU0CAQI=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Read_Excel_1" sap:VirtualizedContainerService.HintSize="350,187" />
+      <sap2010:ViewStateData Id="As_Dataframe_1" sap:VirtualizedContainerService.HintSize="350,229" />
+      <sap2010:ViewStateData Id="As_List_1" sap:VirtualizedContainerService.HintSize="350,191" />
+      <sap2010:ViewStateData Id="Print_1" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="372,914">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="412,767" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

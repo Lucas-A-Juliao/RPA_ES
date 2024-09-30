@@ -1,0 +1,54 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jea="clr-namespace:JornadaRPA.Excel.Add_Row;assembly=JornadaRPA.Excel"
+ xmlns:jer="clr-namespace:JornadaRPA.Excel.Read_Excel;assembly=JornadaRPA.Excel"
+ xmlns:jew="clr-namespace:JornadaRPA.Excel.Write_Excel;assembly=JornadaRPA.Excel"
+ xmlns:jpa="clr-namespace:JornadaRPA.Python.Assign_Values;assembly=JornadaRPA.Python"
+ xmlns:jpe="clr-namespace:JornadaRPA.PDF.Extract_Text;assembly=JornadaRPA.PDF"
+ xmlns:jpo="clr-namespace:JornadaRPA.PDF.Open_PDF;assembly=JornadaRPA.PDF"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:jpr="clr-namespace:JornadaRPA.Python.Regex_Search;assembly=JornadaRPA.Python"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jer:Read_Excel sap2010:WorkflowViewState.IdRef="Read_Excel_1" dataList="dataList" dataType="As_List" file_or_path="&quot;C:\RPA\botcity\Lab\Lab_PDF_RE\PDF-EXTRACT.xlsx&quot;" header="True" instance="excelBot" instanceExcel="True" sheet="&quot;Sheet1&quot;" />
+    <jpo:Open_PDF sap2010:WorkflowViewState.IdRef="Open_PDF_1" instance="instancePDF" path="&quot;C:\Users\HP\Downloads\nf\E1-0001-01.pdf&quot;" />
+    <jpe:Extract_Text sap2010:WorkflowViewState.IdRef="Extract_Text_1" char_dir_render="None" instance="instancePDF" layout="False" line_dir_render="None" page="1" result="extractTextResult" x_density="7.25" x_tolerance="3" x_tolerance_ratio="None" y_density="13" y_tolerance="3" />
+    <jpp:Print sap2010:WorkflowViewState.IdRef="Print_1" print="extractTextResult" />
+    <jpr:Regex_Search sap2010:WorkflowViewState.IdRef="Regex_Search_2" expression="&quot;RAZÃO SOCIAL:\s([A-Za-zÀ-ú0-9\s\W\w]+)(?=\s*DISCRIMINAÇÃO)&quot;" group="1" result="razaoSocial" text="extractTextResult" />
+    <jpp:Print sap2010:WorkflowViewState.IdRef="Print_2" print="razaoSocial" />
+    <jpr:Regex_Search sap2010:WorkflowViewState.IdRef="Regex_Search_4" expression="&quot;CNPJ:\s([A-Za-zÀ-ú0-9\s\W\w]+)(?=\s*RAZÃO)&quot;" group="1" result="cnpj" text="extractTextResult" />
+    <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_1" to="listaDatos" value="[razaoSocial,cnpj]" />
+    <jpp:Print sap2010:WorkflowViewState.IdRef="Print_3" print="listaDatos" />
+    <jea:Add_Row sap2010:WorkflowViewState.IdRef="Add_Row_1" instance="excelBot" row="listaDatos" sheet="&quot;Sheet1&quot;" />
+    <jew:Write_Excel sap2010:WorkflowViewState.IdRef="Write_Excel_2" file_or_path="&quot;C:\RPA\botcity\Lab\Lab_PDF_RE\PDF-EXTRACT.xlsx&quot;" instance="excelBot" />
+    <sads:DebugSymbol.Symbol>dyZDOlxSUEFcYm90Y2l0eVxMYWJcTGFiX1BERl9SRVxCb3QueGFtbAwRAx4OAgEBEgUSiQICAQwTBROUAQIBCxQFFJsCAgEKFQUVVgIBCRYFFtYBAgEIFwUXUAIBBxgFGL8BAgEGGQUZdwIBBRoFGk8CAQQbBRuAAQIBAxwFHKYBAgEC</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Read_Excel_1" sap:VirtualizedContainerService.HintSize="474,149" />
+      <sap2010:ViewStateData Id="Open_PDF_1" sap:VirtualizedContainerService.HintSize="474,123" />
+      <sap2010:ViewStateData Id="Extract_Text_1" sap:VirtualizedContainerService.HintSize="474,126" />
+      <sap2010:ViewStateData Id="Print_1" sap:VirtualizedContainerService.HintSize="474,63" />
+      <sap2010:ViewStateData Id="Regex_Search_2" sap:VirtualizedContainerService.HintSize="474,191" />
+      <sap2010:ViewStateData Id="Print_2" sap:VirtualizedContainerService.HintSize="474,63" />
+      <sap2010:ViewStateData Id="Regex_Search_4" sap:VirtualizedContainerService.HintSize="474,191" />
+      <sap2010:ViewStateData Id="Assign_Values_1" sap:VirtualizedContainerService.HintSize="474,125" />
+      <sap2010:ViewStateData Id="Print_3" sap:VirtualizedContainerService.HintSize="474,63" />
+      <sap2010:ViewStateData Id="Add_Row_1" sap:VirtualizedContainerService.HintSize="474,188" />
+      <sap2010:ViewStateData Id="Write_Excel_2" sap:VirtualizedContainerService.HintSize="474,142" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="496,1845">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="536,2047" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

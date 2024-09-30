@@ -1,0 +1,39 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jpd="clr-namespace:JornadaRPA.PDF.Debug_Table;assembly=JornadaRPA.PDF"
+ xmlns:jpe="clr-namespace:JornadaRPA.PDF.Extract_Table;assembly=JornadaRPA.PDF"
+ xmlns:jpo="clr-namespace:JornadaRPA.PDF.Open_PDF;assembly=JornadaRPA.PDF"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:jpt="clr-namespace:JornadaRPA.PDF.Table_Settings;assembly=JornadaRPA.PDF"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jpo:Open_PDF sap2010:WorkflowViewState.IdRef="Open_PDF_1" instance="instancePDF" path="&quot;C:\Users\HP\Downloads\nf\S1-19872022.pdf&quot;" />
+    <jpt:Table_Settings sap2010:WorkflowViewState.IdRef="Table_Settings_4" edge_min_length="3" explicit_horizontal_lines="[195,215,235,255,275]" explicit_vertical_lines="[35,539,581]" horizontal_strategy="Explicit" intersection_tolerance="3" intersection_x_tolerance="3" intersection_y_tolerance="3" join_tolerance="3" join_x_tolerance="3" join_y_tolerance="3" min_words_horizontal="1" min_words_vertical="3" snap_tolerance="3" snap_x_tolerance="3" snap_y_tolerance="3" text_tolerance="3" text_x_tolerance="3" text_y_tolerance="3" vertical_strategy="Explicit" />
+    <jpe:Extract_Table sap2010:WorkflowViewState.IdRef="Extract_Table_1" instance="instancePDF" page="1" result="extractTableResult" settings="True" />
+    <jpd:Debug_Table sap2010:WorkflowViewState.IdRef="Debug_Table_1" antialias="False" force_mediabox="False" height="None" instance="instancePDF" page="1" resolution="72" result="imageResult" settings="True" width="None" />
+    <jpp:Print sap2010:WorkflowViewState.IdRef="Print_1" print="extractTableResult" />
+    <sads:DebugSymbol.Symbol>dyNDOlxSUEFcYm90Y2l0eVxMYWJcTGFiX1BERlxCb3QueGFtbAYOAxUOAgEBDwUPlQECAQYQBRCzBAIBBREFEZgBAgEEEgUS4QECAQMTBRNXAgEC</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Open_PDF_1" sap:VirtualizedContainerService.HintSize="350,123" />
+      <sap2010:ViewStateData Id="Table_Settings_4" sap:VirtualizedContainerService.HintSize="350,65" />
+      <sap2010:ViewStateData Id="Extract_Table_1" sap:VirtualizedContainerService.HintSize="350,126" />
+      <sap2010:ViewStateData Id="Debug_Table_1" sap:VirtualizedContainerService.HintSize="350,126" />
+      <sap2010:ViewStateData Id="Print_1" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="372,787">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="412,867" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
