@@ -1,0 +1,55 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jea="clr-namespace:JornadaRPA.Excel.Add_Rows;assembly=JornadaRPA.Excel"
+ xmlns:jec="clr-namespace:JornadaRPA.Excel.Clear_Excel;assembly=JornadaRPA.Excel"
+ xmlns:jec1="clr-namespace:JornadaRPA.Excel.Create_Sheet;assembly=JornadaRPA.Excel"
+ xmlns:jer="clr-namespace:JornadaRPA.Excel.Read_Excel;assembly=JornadaRPA.Excel"
+ xmlns:jew="clr-namespace:JornadaRPA.Excel.Write_Excel;assembly=JornadaRPA.Excel"
+ xmlns:jpc="clr-namespace:JornadaRPA.Python.Comments;assembly=JornadaRPA.Python"
+ xmlns:jpc1="clr-namespace:JornadaRPA.Python.CodePython;assembly=JornadaRPA.Python"
+ xmlns:jpd="clr-namespace:JornadaRPA.Python.Dataframe_To_List;assembly=JornadaRPA.Python"
+ xmlns:jwe="clr-namespace:JornadaRPA.Web.ExtractDataTable;assembly=JornadaRPA.Web"
+ xmlns:jwo="clr-namespace:JornadaRPA.Web.OpenBrowser;assembly=JornadaRPA.Web"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:Annotation.AnnotationText="Extraer datos Web" DisplayName="Utilizar el navegador web y extraer sus datos" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jpc:Comments Code="Extraer datos" sap2010:WorkflowViewState.IdRef="Comments_1" />
+    <jpc1:CodePython Code="#Mi comentario" sap2010:WorkflowViewState.IdRef="CodePython_1" />
+    <jwo:OpenBrowser download_folder_path="{x:Null}" user_data_dir="{x:Null}" Headless="True" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="&quot;https://jornadarpa.com.br/alunos/desafios/dataextractioncrm/desafios_crm-clientes.html&quot;" WebDriverPath="''" createInstance="True" inBrowser="CHROME" outBrowser="webBot" page_load_strategy="Normal" />
+    <jwe:ExtractDataTable Datatable="dataTable" sap2010:WorkflowViewState.IdRef="ExtractDataTable_1" Lines="0" XPathNext="&quot;/html/body/div[4]/section/div/div/div/div/div/div/div/div[3]/div[2]/div/ul/li[5]/a&quot;" XPathtable="&quot;/html/body/div[4]/section/div/div/div/div/div/div/div/div[2]/div/table&quot;" inBrowser="webBot" />
+    <jpd:Dataframe_To_List sap2010:WorkflowViewState.IdRef="Dataframe_To_List_1" dataframe="dataTable" orient="records" result="listResult" />
+    <jer:Read_Excel sap2010:WorkflowViewState.IdRef="Read_Excel_1" dataList="dataList" dataType="As_List" file_or_path="&quot;C:\Users\HP\Downloads\Lista_ejemplo.xlsx&quot;" header="True" instance="excelBot" instanceExcel="True" sheet="None" />
+    <jec:Clear_Excel DisplayName="Clear_Excel" sap2010:WorkflowViewState.IdRef="Clear_Excel_1" instance="excelBot" sheet="&quot;lista&quot;" />
+    <jec1:Create_Sheet sap2010:WorkflowViewState.IdRef="Create_Sheet_1" instance="excelBot" sheet="&quot;Clientes&quot;" />
+    <jea:Add_Rows sap2010:WorkflowViewState.IdRef="Add_Rows_1" instance="excelBot" rows="[[&quot;ID&quot;,&quot;Nome&quot;,&quot;Pais&quot;,&quot;Cidade&quot;,&quot;email&quot;] ,listResult]" sheet="&quot;Clientes&quot;" />
+    <jew:Write_Excel sap2010:WorkflowViewState.IdRef="Write_Excel_1" file_or_path="&quot;C:\Users\HP\Downloads\Lista_ejemplo.xlsx&quot;" instance="excelBot" />
+    <sads:DebugSymbol.Symbol>dyhDOlxSUEFcYm90Y2l0eVxMYWJcTGFiX1dlYnNjcmFwXEJvdC54YW1sCxMDHw4CAQEUBRRXAgELFQUVXQIBChYFFuYCAgEJFwUX0AICAQgYBRiPAQIBBxkFGfUBAgEGGgUakAECAQUbBRt8AgEEHAUc4AECAQMdBR2gAQIBAg==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Comments_1" sap:VirtualizedContainerService.HintSize="350,78" />
+      <sap2010:ViewStateData Id="CodePython_1" sap:VirtualizedContainerService.HintSize="350,78" />
+      <sap2010:ViewStateData Id="OpenBrowser_1" sap:VirtualizedContainerService.HintSize="350,174" />
+      <sap2010:ViewStateData Id="ExtractDataTable_1" sap:VirtualizedContainerService.HintSize="350,94" />
+      <sap2010:ViewStateData Id="Dataframe_To_List_1" sap:VirtualizedContainerService.HintSize="350,126" />
+      <sap2010:ViewStateData Id="Read_Excel_1" sap:VirtualizedContainerService.HintSize="350,168" />
+      <sap2010:ViewStateData Id="Clear_Excel_1" sap:VirtualizedContainerService.HintSize="350,165" />
+      <sap2010:ViewStateData Id="Create_Sheet_1" sap:VirtualizedContainerService.HintSize="350,146" />
+      <sap2010:ViewStateData Id="Add_Rows_1" sap:VirtualizedContainerService.HintSize="350,207" />
+      <sap2010:ViewStateData Id="Write_Excel_1" sap:VirtualizedContainerService.HintSize="350,142" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="372,1862">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="412,1942" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
