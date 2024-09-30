@@ -1,0 +1,38 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jpa="clr-namespace:JornadaRPA.Python.Assign_Values;assembly=JornadaRPA.Python"
+ xmlns:jpf="clr-namespace:JornadaRPA.Python.ForEach;assembly=JornadaRPA.Python"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_1" to="lista" value="['Alejandro', 'Maria', 'Juan', 'Pedro']" />
+    <jpf:ForEach sap2010:WorkflowViewState.IdRef="ForEach_1" item="item" values="lista">
+      <jpf:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <jpp:Print sap2010:WorkflowViewState.IdRef="Print_1" print="item" />
+        </ActivityAction>
+      </jpf:ForEach.Body>
+    </jpf:ForEach>
+    <sads:DebugSymbol.Symbol>dyJDOlxSUEFcYm90Y2l0eVxMYWJcTGFiOV8xXEJvdC54YW1sAwwDFg4CAQENBQ2HAQIBAw4FFBMCAQI=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_Values_1" sap:VirtualizedContainerService.HintSize="494,125" />
+      <sap2010:ViewStateData Id="Print_1" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="ForEach_1" sap:VirtualizedContainerService.HintSize="494,169" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="516,458">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="556,538" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

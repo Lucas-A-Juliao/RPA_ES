@@ -1,0 +1,50 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jpa="clr-namespace:JornadaRPA.Python.Assign_Values;assembly=JornadaRPA.Python"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:jpw="clr-namespace:JornadaRPA.Python.While;assembly=JornadaRPA.Python"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_1" to="contador" value="1" />
+    <jpw:While sap2010:WorkflowViewState.IdRef="While_1" condition="contador &lt; 20">
+      <jpw:While.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <jpp:Print sap2010:WorkflowViewState.IdRef="Print_1" print="contador" />
+            <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_2" to="contador" value="contador + 1" />
+          </Sequence>
+        </ActivityAction>
+      </jpw:While.Body>
+    </jpw:While>
+    <sads:DebugSymbol.Symbol>dyJDOlxSUEFcYm90Y2l0eVxMYWJcTGFiOV8yXEJvdC54YW1sAwwDGQ4CAQENBQ1kAgEDDgUXEQIBAg==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_Values_1" sap:VirtualizedContainerService.HintSize="510,125" />
+      <sap2010:ViewStateData Id="Print_1" sap:VirtualizedContainerService.HintSize="474,63" />
+      <sap2010:ViewStateData Id="Assign_Values_2" sap:VirtualizedContainerService.HintSize="474,125" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="496,352">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="While_1" sap:VirtualizedContainerService.HintSize="510,455" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="532,744">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="572,824" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

@@ -1,0 +1,29 @@
+{
+  "NameProject": "Lab9_1",
+  "Main": "Bot.xaml",
+  "Description": null,
+  "Tecnology": "Python",
+  "Dependencies": [],
+  "WebDrivers": [
+    {
+      "Import": "CHROME,C:\\Users\\HP\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
+    },
+    {
+      "Import": "CUSTOM,C:\\RPA\\WebDrivers\\custom.exe"
+    },
+    {
+      "Import": "EDGE,C:\\RPA\\WebDrivers\\edge.exe"
+    },
+    {
+      "Import": "FIREFOX,C:\\RPA\\WebDrivers\\firefox.exe"
+    }
+  ],
+  "MaestroLogin": null,
+  "Packages": [
+    {
+      "Import": "JornadaRPA.Python"
+    }
+  ],
+  "PathSelector": "C:\\",
+  "PathRunner": "C:\\Users\\HP\\OneDrive\\Documents\\BotCity\\BotRunner-gui.bat"
+}

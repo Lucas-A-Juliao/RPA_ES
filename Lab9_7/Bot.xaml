@@ -1,0 +1,59 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jpa="clr-namespace:JornadaRPA.Python.Assign_Values;assembly=JornadaRPA.Python"
+ xmlns:jpe="clr-namespace:JornadaRPA.Python.ElseIf;assembly=JornadaRPA.Python"
+ xmlns:jpi="clr-namespace:JornadaRPA.Python.If;assembly=JornadaRPA.Python"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_1" to="variable1" value="10" />
+    <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_2" to="variable2" value="10" />
+    <jpi:If sap2010:WorkflowViewState.IdRef="If_1" condition="variable1 == variable2">
+      <jpi:If.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <jpp:Print sap2010:WorkflowViewState.IdRef="Print_1" print="&quot;La  variable 1 es igual que variable 2&quot;" />
+        </ActivityAction>
+      </jpi:If.Body>
+    </jpi:If>
+    <jpe:ElseIf sap2010:WorkflowViewState.IdRef="ElseIf_1" condition="variable1 &gt; variable2">
+      <jpe:ElseIf.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <jpp:Print sap2010:WorkflowViewState.IdRef="Print_2" print="&quot;La  variable 1 es mayor que variable 2&quot;" />
+        </ActivityAction>
+      </jpe:ElseIf.Body>
+    </jpe:ElseIf>
+    <jpe:ElseIf sap2010:WorkflowViewState.IdRef="ElseIf_2" condition="variable1 &lt; variable2">
+      <jpe:ElseIf.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <jpp:Print sap2010:WorkflowViewState.IdRef="Print_3" print="&quot;La  variable 1 es menor que variable 2&quot;" />
+        </ActivityAction>
+      </jpe:ElseIf.Body>
+    </jpe:ElseIf>
+    <sads:DebugSymbol.Symbol>dyJDOlxSUEFcYm90Y2l0eVxMYWJcTGFiOV83XEJvdC54YW1sBg0DJg4CAQEOBQ5mAgEGDwUPZgIBBRAFFg4CAQQXBR0SAgEDHgUkEgIBAg==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_Values_1" sap:VirtualizedContainerService.HintSize="474,125" />
+      <sap2010:ViewStateData Id="Assign_Values_2" sap:VirtualizedContainerService.HintSize="474,125" />
+      <sap2010:ViewStateData Id="Print_1" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="474,166" />
+      <sap2010:ViewStateData Id="Print_2" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="ElseIf_1" sap:VirtualizedContainerService.HintSize="474,166" />
+      <sap2010:ViewStateData Id="Print_3" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="ElseIf_2" sap:VirtualizedContainerService.HintSize="474,166" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="496,1032">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="536,1112" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

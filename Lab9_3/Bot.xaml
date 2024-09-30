@@ -1,0 +1,84 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="JornadaRPA.Bot" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="JornadaRPAStudio.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:jpa="clr-namespace:JornadaRPA.Python.Assign_Values;assembly=JornadaRPA.Python"
+ xmlns:jpc="clr-namespace:JornadaRPA.Python.Case;assembly=JornadaRPA.Python"
+ xmlns:jpe="clr-namespace:JornadaRPA.Python.ElseIf;assembly=JornadaRPA.Python"
+ xmlns:jpi="clr-namespace:JornadaRPA.Python.If;assembly=JornadaRPA.Python"
+ xmlns:jpm="clr-namespace:JornadaRPA.Python.Match;assembly=JornadaRPA.Python"
+ xmlns:jpp="clr-namespace:JornadaRPA.Python.Print;assembly=JornadaRPA.Python"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <jpa:Assign_Values sap2010:WorkflowViewState.IdRef="Assign_Values_1" to="varColor" value="&quot;Azul&quot;" />
+    <jpi:If sap2010:WorkflowViewState.IdRef="If_2" condition="varColor == &quot;Azul&quot;">
+      <jpi:If.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <jpp:Print sap2010:WorkflowViewState.IdRef="Print_9" print="&quot;El color es Azul&quot;" />
+        </ActivityAction>
+      </jpi:If.Body>
+    </jpi:If>
+    <jpe:ElseIf sap2010:WorkflowViewState.IdRef="ElseIf_3" condition="varColor == &quot;Verde&quot;">
+      <jpe:ElseIf.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <jpp:Print sap2010:WorkflowViewState.IdRef="Print_10" print="&quot;El color es Verde&quot;" />
+        </ActivityAction>
+      </jpe:ElseIf.Body>
+    </jpe:ElseIf>
+    <jpm:Match sap2010:WorkflowViewState.IdRef="Match_1" condition="varColor">
+      <jpm:Match.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <jpc:Case sap2010:WorkflowViewState.IdRef="Case_6" condition="&quot;Azul&quot;">
+              <jpc:Case.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <jpp:Print sap2010:WorkflowViewState.IdRef="Print_8" print="&quot;El color es Azul&quot;" />
+                </ActivityAction>
+              </jpc:Case.Body>
+            </jpc:Case>
+            <jpc:Case sap2010:WorkflowViewState.IdRef="Case_1" condition="&quot;Verde&quot;">
+              <jpc:Case.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <jpp:Print sap2010:WorkflowViewState.IdRef="Print_7" print="&quot;El color es verde&quot;" />
+                </ActivityAction>
+              </jpc:Case.Body>
+            </jpc:Case>
+          </Sequence>
+        </ActivityAction>
+      </jpm:Match.Body>
+    </jpm:Match>
+    <sads:DebugSymbol.Symbol>dyJDOlxSUEFcYm90Y2l0eVxMYWJcTGFiOV8zXEJvdC54YW1sBQ8DNg4CAQEQBRBzAgEFEQUXDgIBBBgFHhICAQMfBTQRAgEC</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_Values_1" sap:VirtualizedContainerService.HintSize="474,125" />
+      <sap2010:ViewStateData Id="Print_9" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="474,166" />
+      <sap2010:ViewStateData Id="Print_10" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="ElseIf_3" sap:VirtualizedContainerService.HintSize="474,166" />
+      <sap2010:ViewStateData Id="Print_8" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="Case_6" sap:VirtualizedContainerService.HintSize="374,166" />
+      <sap2010:ViewStateData Id="Print_7" sap:VirtualizedContainerService.HintSize="350,63" />
+      <sap2010:ViewStateData Id="Case_1" sap:VirtualizedContainerService.HintSize="374,166" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="396,496">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Match_1" sap:VirtualizedContainerService.HintSize="474,599" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="496,1300">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="JornadaRPAStudio.Workflow_1" sap:VirtualizedContainerService.HintSize="536,1380" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
